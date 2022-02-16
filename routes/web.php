@@ -13,15 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/login', function () {
+    return view('layouts.app');
+});
+Route::get('/register', function () {
+    return view('layouts.app');
+});
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::group(['namespace' => 'Main'], function () {
     Route::get('/', 'IndexController')->name('main.index');
     Route::get('/{car}', 'ShowController')->name('main.show');
 });
 
-/*Route::get('/', function () {
-    return view('main.index');
-});*/
+Route::group(['namespace' => 'Admin', 'middleware' => ['role:admin']], function () {
+    Route::get('/', 'IndexController')->name('admin.main.index');
+});
+
+
+
 
 Auth::routes();
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

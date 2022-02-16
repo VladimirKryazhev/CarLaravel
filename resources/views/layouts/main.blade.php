@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('assets/vendors/font-awesome/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/aos/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+
     {{--<link href="https://getbootstrap.com/docs/5.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">--}}
     <script src="{{ asset('assets/vendors/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/loader.js') }}"></script>
@@ -30,11 +31,13 @@
 
 
                     <li class="nav-item">
+                      {{--  <a class="nav-link" href="{{ url('/login') }}">Войти</a>--}}
+
                         @auth()
-                            <a class="nav-link" href="{{route('login') }}">Личный кабинет</a>
-                        @endauth
+                            <a class="nav-link" href="{{ url('/login') }}">Личный кабинет</a>
+                       @endauth
                         @guest()
-                            <a class="nav-link" href="{{route('login') }}">Войти</a>
+                            <a class="nav-link" href="{{ url('/login') }}">Войти</a>
                         @endguest
 
                     </li>
