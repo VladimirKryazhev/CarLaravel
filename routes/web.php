@@ -22,18 +22,33 @@ Route::get('/register', function () {
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::group(['middleware' => ['role:admin'], 'namespace' => 'Admin', 'prefix' => 'admin'], function () {
+    Route::get('/', 'IndexController')->name('admin.main.index');
+    Route::get('/create', 'CreateController')->name('admin.main.create');
+    Route::post('/', 'StoreController')->name('admin.main.store');
+    Route::get('/{car}', 'ShowController')->name('admin.main.show');
+    Route::get('/{car}/edit', 'EditController')->name('admin.main.edit');
+    Route::patch('/{car}', 'UpdateController')->name('admin.main.update');
+    Route::delete('/{car}', 'DeleteController')->name('admin.main.delete');
+});
+
+Route::group(['middleware' => ['role:user'], 'namespace' => 'User', 'prefix' => 'user'], function () {
+    Route::get('/', 'IndexController')->name('user.main.index');
+});
+
+
+
+
 Route::group(['namespace' => 'Main'], function () {
     Route::get('/', 'IndexController')->name('main.index');
     Route::get('/{car}', 'ShowController')->name('main.show');
 });
 
-Route::group(['namespace' => 'Admin', 'middleware' => ['role:admin']], function () {
-    Route::get('/', 'IndexController')->name('admin.main.index');
-});
 
 
 
 
-Auth::routes();
+
+Auth::routes(['verify' => true]);
 
 

@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -62,7 +62,7 @@
     @yield('content')
 
     <footer class="main-footer">
-        <strong>Blog Vladivostok</strong>
+        <strong>Авто каталог</strong>
         <div class="float-right d-none d-sm-inline-block">
             <b>PALP</b>
         </div>

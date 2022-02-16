@@ -51,10 +51,10 @@
                                             <td>{{ $car->brand }}</td>
                                             <td>{{ $car->title }}</td>
                                             <td>{{ $car->wheel }}</td>
-                                            <td class="text-center"><a href="{{--{{ route('admin.main.show', $car->id) }}--}}"><i class="far fa-eye"></i></a></td>
-                                            <td class="text-center"><a href="{{--{{ route('admin.main.edit', $car->id) }}--}}" class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
+                                            <td class="text-center"><a href="{{ route('admin.main.show', $car->id) }}"><i class="far fa-eye"></i></a></td>
+                                            <td class="text-center"><a href="{{ route('admin.main.edit', $car->id) }}" class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
                                             <td class="text-center">
-                                                <form action="{{--{{ route('admin.main.delete', $car->id) }}--}}" method="POST">
+                                                <form action="{{ route('admin.main.delete', $car->id) }}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                     <button type="submit" class="border-0 bg-transparent">
