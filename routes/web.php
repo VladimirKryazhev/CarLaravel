@@ -33,7 +33,9 @@ Route::group(['middleware' => ['role:admin'], 'namespace' => 'Admin', 'prefix' =
 });
 
 Route::group(['middleware' => ['role:user'], 'namespace' => 'User', 'prefix' => 'user'], function () {
-    Route::get('/', 'IndexController')->name('user.main.index');
+    Route::get('/', 'IndexController')->name('user.index');
+    Route::get('/{car}/edit', 'EditController')->name('user.edit');
+    Route::patch('/{car}', 'UpdateController')->name('user.update');
 });
 
 
