@@ -1,7 +1,16 @@
 @extends('admin.layouts.main')
 @section('content')
 
-
+     {{-- Блок по желанию для выведения сообщения об успехе добавления, но при редиректе на эту же страницу во вью create. В StoreController есть ссылка на блок.
+    <div class="content-header">
+        <div class="conteiner-fluid">
+            @if(session('success'))
+                <div class="alert alert-success" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                    <h4><i class="icon fa fa-check"></i>{{ session('success') }}</h4>
+                </div>
+        </div>
+    </div>--}}
 
     <div class="content-wrapper">
 

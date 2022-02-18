@@ -11,7 +11,7 @@
                         <a href="{{ route('admin.main.index') }}" class="btn btn-dark col-md-2" role="button">Назад к каталогу</a>
 
 
-                        <form method="POST" action="{{ route('admin.main.update', $car) }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('admin.main.update', $car->id) }}" enctype="multipart/form-data">
 
                             @csrf
                             @method('patch')

@@ -8,11 +8,11 @@
 
 
             <li class="nav-item">
-                <a href="{{ route('admin.main.index') }}" class="nav-link">
+                <a href="{{ route('user.index') }}" class="nav-link">
                     <i class="nav-icon fas fa-home"></i>
 
                     <p>
-                        Главная
+                        На главную
                     </p>
                 </a>
             </li>

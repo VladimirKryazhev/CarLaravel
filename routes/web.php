@@ -32,7 +32,7 @@ Route::group(['middleware' => ['role:admin'], 'namespace' => 'Admin', 'prefix' =
     Route::delete('/{car}', 'DeleteController')->name('admin.main.delete');
 });
 
-Route::group(['middleware' => ['role:user'], 'namespace' => 'User', 'prefix' => 'user'], function () {
+Route::group(['middleware' => ['role:user|admin'], 'namespace' => 'User', 'prefix' => 'user'], function () {
     Route::get('/', 'IndexController')->name('user.index');
     Route::get('/{car}/edit', 'EditController')->name('user.edit');
     Route::patch('/{car}', 'UpdateController')->name('user.update');
